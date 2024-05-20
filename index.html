@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 50px;
+        }
+
+        .calculator-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .calculator {
+            border: 1px dotted #000;
+            padding: 20px;
+            text-align: center;
+        }
+
+        img {
+            width:500px;
+            height: 500px;
+            margin-right: 20px;
+        }
+
+        input[type="number"] {
+            width: 100px;
+            padding: 10px;
+            margin: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="calculator-container">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuoKuD6cWbKObQR1KgLXFkBvxE52hNvP9ygA9E-eP-hw&s" alt="Robot Image">
+            <div class="calculator">
+                <input type="number" id="num1" placeholder="Enter first number"><br>
+                <input type="number" id="num2" placeholder="Enter second number"><br>
+                <button onclick="add()">Add</button>
+                <button onclick="subtract()">Subtract</button>
+                <button onclick="multiply()">Multiply</button>
+                <button onclick="divide()">Divide</button>
+                <br>
+                <button onclick="productOfXY()">Product of x raised to y</button>
+                <button onclick="xRaiseToY()">x raised to y</button>
+                <br>
+                <p id="result"></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function add() {
+            let num1 = parseFloat(document.getElementById('num1').value);
+            let num2 = parseFloat(document.getElementById('num2').value);
+            document.getElementById('result').innerText = "Result: " + (num1 + num2);
+        }
+
+        function subtract() {
+            let num1 = parseFloat(document.getElementById('num1').value);
+            let num2 = parseFloat(document.getElementById('num2').value);
+            document.getElementById('result').innerText = "Result: " + (num1 - num2);
+        }
+
+        function multiply() {
+            let num1 = parseFloat(document.getElementById('num1').value);
+            let num2 = parseFloat(document.getElementById('num2').value);
+            document.getElementById('result').innerText = "Result: " + (num1 * num2);
+        }
+
+        function divide() {
+            let num1 = parseFloat(document.getElementById('num1').value);
+            let num2 = parseFloat(document.getElementById('num2').value);
+            if (num2 !== 0) {
+                document.getElementById('result').innerText = "Result: " + (num1 / num2);
+            } else {
+                document.getElementById('result').innerText = "Cannot divide by zero!";
+            }
+        }
+
+        function productOfXY() {
+            let num1 = parseFloat(document.getElementById('num1').value);
+            let num2 = parseFloat(document.getElementById('num2').value);
+            document.getElementById('result').innerText = "Result: " + (Math.pow(num1, num2));
+        }
+
+        function xRaiseToY() {
+            let num1 = parseFloat(document.getElementById('num1').value);
+            let num2 = parseFloat(document.getElementById('num2').value);
+            document.getElementById('result').innerText = "Result: " + (Math.pow(num2, num1));
+        }
+    </script>
+</body>
+</html>
